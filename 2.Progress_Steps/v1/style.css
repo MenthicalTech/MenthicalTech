@@ -1,0 +1,134 @@
+/* CSS BY Mentor Buteyo */
+
+
+/* Font Used */
+
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+/* Colors */
+
+:root {
+    --bg-background-color: #fffeff;
+    --active-bg-color: #3498db;
+    --empty-bg-color: #999;
+    --other-bg-color: #e0e0e0;
+    --text-color: #666;
+    --other-text-color: #fff;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+
+/* Universal Function */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--other-bg-color);
+}
+
+.container {
+    text-align: center;
+}
+
+
+/* Progress Container Set-Up */
+
+.progress-container {
+    position: relative;
+    max-width: 100%;
+    width: 350px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.step {
+    font-size: 1.2rem;
+    font-weight: bolder;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: var(--other-text-color);
+    color: var(--text-color);
+    border: 3px solid var(--empty-bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: border-color 0.5s ease;
+}
+
+.step.active {
+    border-color: var(--active-bg-color);
+}
+
+.progress-container::before {
+    content: '';
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background-color: var(--empty-bg-color);
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: -1;
+}
+
+
+/* Progress Bar Set-UP */
+
+.progress {
+    position: absolute;
+    height: 4px;
+    width: 0%;
+    background-color: var(--active-bg-color);
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    transition: width 0.5s ease;
+    z-index: -1;
+}
+
+
+/* Buttons Set-UP */
+
+.btn {
+    border: 0;
+    font-size: 1.3rem;
+    font-weight: bold;
+    font-family: inherit;
+    color: var(--other-text-color);
+    background-color: var(--active-bg-color);
+    width: 6rem;
+    padding: 0.9rem;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 1px 2px 4px var(--shadow-color);
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn:hover {
+    box-shadow: 3px 3px 4px var(--shadow-color);
+}
+
+.btn:disabled {
+    background-color: var(--empty-bg-color);
+    color: var(--text-color);
+    cursor: not-allowed;
+}
